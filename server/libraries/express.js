@@ -90,7 +90,7 @@ module.exports = function () {
     //Start
     app.listen(port);
     console.log('\n==============================');
-    console.log('Rodati App');
+    console.log('Rodati');
     console.log('Started on port: ' + port);
     console.log('Enviroment: ' + app.get('env'));
     console.log('==============================\n');
