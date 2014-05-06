@@ -1,0 +1,28 @@
+{
+  "name": "rodati-template",
+  "version": "0.0.1",
+  "description": "Rodati Template",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Rodati Team",
+  "dependencies": {
+    "express": "~4.1.1",
+    "body-parser": "~1.0.2",
+    "express-session": "~1.0.4",
+    "cookie-parser": "~1.0.1",
+    "morgan": "~1.0.1",
+    "compression": "~1.0.2",
+    "nconf": "~0.6.9",
+    "adaro": "~0.1.5",
+    "dustjs-linkedin": "~2.3.4",
+    "dustjs-helpers": "~1.2.0",
+    "winston": "~0.7.3",
+    "express-namespace": "~0.1.1",
+    "async": "~0.8.0",
+    "q": "~1.0.1",
+    "lodash": "~2.4.1"
+  }
+}
