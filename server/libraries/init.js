@@ -7,7 +7,7 @@ var env   = process.env.NODE_ENV || 'development';
 module.exports = function (root) {
 
     nconf.argv().env().file({ file: root + '/server/config/' + env + '.json' });
-    nconf.set('paths', {
+    nconf.set('app:paths', {
         'root': root,
         'models': root + '/server/models',
         'controllers': root + '/server/controllers',

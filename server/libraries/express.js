@@ -12,12 +12,13 @@ var compression  = require('compression');
 var favicon      = require('serve-favicon');
 
 //Config
-var paths        = nconf.get('paths');
-var port         = nconf.get('port');
-var secret       = nconf.get('secret');
-var ws           = nconf.get('ws');
-var env          = nconf.get('env');
-var morganOutput = nconf.get('morgan');
+var config       = nconf.get();
+var paths        = config.app.paths;
+var port         = config.app.port;
+var secret       = config.app.secret;
+var ws           = config.app.views.ws;
+var cache        = config.app.views.cache;
+var logger       = config.app.logger.level;
 
 //Loader
 var loader       = require(paths.libraries + '/loader');
@@ -41,7 +42,7 @@ module.exports = function () {
     app.use(bodyParser());
 
     //HTTP logger
-    app.use(morgan(morganOutput));
+    app.use(morgan(logger));
 
     //Gzip
     app.use(compression());

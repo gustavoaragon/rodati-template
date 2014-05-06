@@ -1,8 +1,9 @@
 //Main dependencies
-var nconf = require('nconf');
+var nconf  = require('nconf');
 
 //Config
-var paths = nconf.get('paths');
+var config = nconf.get();
+var paths  = config.app.paths;
 
 //Export
 module.exports = {

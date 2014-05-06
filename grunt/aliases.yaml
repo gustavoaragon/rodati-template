@@ -1,2 +1,7 @@
+init:
+    - 'sass'
+    - 'browserify'
+
 dev:
+    - 'init'
     - 'concurrent'

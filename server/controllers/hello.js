@@ -6,7 +6,8 @@ var winston = require('winston');
 var nconf   = require('nconf');
 
 //Config
-var paths   = nconf.get('paths');
+var config = nconf.get();
+var paths  = config.app.paths;
 
 //Loader
 var loader  = require(paths.libraries + '/loader');
@@ -30,7 +31,7 @@ exports.world = function (req, res) {
 //Team
 exports.team = function (req, res) {
 
-	var model = loader.model('team');
+    var model = loader.model('team');
 
     res.send(model);
 

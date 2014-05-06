@@ -2,7 +2,8 @@
 var nconf  = require('nconf');
 
 //Config
-var paths  = nconf.get('paths');
+var config = nconf.get();
+var paths  = config.app.paths;
 
 //Loader
 var loader = require(paths.libraries + '/loader');

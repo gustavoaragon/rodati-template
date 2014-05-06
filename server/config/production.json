@@ -1,6 +1,19 @@
 {
-	"port": "80",
-	"secret": "d41d8cd98f00b204e9800998ecf8427e",
-	"ws": true,
-	"morgan": "default"
+    "app": {
+
+        "port": "80",
+        
+        "secret": "d41d8cd98f00b204e9800998ecf8427e",
+
+        "views": {
+            "ws": true,
+            "cache": true
+        },
+
+        "logger": {
+            "level": "default"
+        }
+
+    }
+
 }
