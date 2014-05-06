@@ -9,6 +9,7 @@ var session      = require('express-session');
 var cookieParser = require('cookie-parser');
 var morgan       = require('morgan');
 var compression  = require('compression');
+var favicon      = require('serve-favicon');
 
 //Config
 var paths        = nconf.get('paths');
@@ -27,10 +28,14 @@ module.exports = function () {
 
     //View engine
     app.engine('dust', dust.dust({
-        'layout': 'layouts/main'
+        'layout': 'layouts/main',
+        'cache': false
     }));
     app.set('view engine', 'dust');
     app.set('views', paths.views);
+
+    //Favicon
+    app.use(favicon(paths.public + '/images/favicon.ico'));
 
     //Parse request bodies
     app.use(bodyParser());
