@@ -5,3 +5,9 @@ init:
 dev:
     - 'init'
     - 'concurrent'
+
+test:
+    - 'mochaTest'
+
+lint:
+    - 'eslint'

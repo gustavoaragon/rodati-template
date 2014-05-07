@@ -1,3 +1,5 @@
+'use strict';
+
 //Main dependencies
 var q       = require('q');
 var async   = require('async');
@@ -19,14 +21,14 @@ exports.index = function (req, res) {
 
     res.send('index');
 
-}
+};
 
 //World
 exports.world = function (req, res) {
 
     res.render('hello/world');
 
-}
+};
 
 //Team
 exports.team = function (req, res) {
@@ -35,4 +37,4 @@ exports.team = function (req, res) {
 
     res.send(model);
 
-}
+};

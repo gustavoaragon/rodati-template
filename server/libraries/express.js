@@ -1,3 +1,5 @@
+'use strict';
+
 //Main dependencies
 var express      = require('express');
 var nconf        = require('nconf');
@@ -58,7 +60,7 @@ module.exports = function () {
     require(paths.routes + '/routes')(app);
 
     //404 error
-    app.use(function(req, res, next){
+    app.use(function(req, res){
 
         res.status(404);
 
@@ -80,7 +82,7 @@ module.exports = function () {
     });
 
     //500 error
-    app.use(function(err, req, res, next){
+    app.use(function(err, req, res){
 
         res.status(err.status || 500);
         
@@ -90,15 +92,22 @@ module.exports = function () {
 
     //White space supression
     if(ws === false){
-        dust.optimizers.format = function(ctx, node) { return node };
+
+        dust.optimizers.format = function(ctx, node) { 
+            return node; 
+        };
+
     }
 
     //Start
     app.listen(port);
+
     console.log('\n==============================');
     console.log('Rodati');
     console.log('Started on port: ' + port);
     console.log('Enviroment: ' + app.get('env'));
     console.log('==============================\n');
 
-}
+    return app;
+
+};

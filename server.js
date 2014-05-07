@@ -1,3 +1,5 @@
+'use strict';
+
 //App root
 var path  = require('path');
 var root  = path.normalize(__dirname);
@@ -6,4 +8,4 @@ var root  = path.normalize(__dirname);
 require(root + '/server/libraries/init')(root);
 
 //Server
-require(root + '/server/libraries/express')();
+module.exports = require(root + '/server/libraries/express')();

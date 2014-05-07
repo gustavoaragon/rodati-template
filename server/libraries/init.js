@@ -1,3 +1,5 @@
+'use strict';
+
 //Main dependencies
 var nconf = require('nconf');
 
@@ -19,4 +21,4 @@ module.exports = function (root) {
         'public': root + '/public'
     });
 
-}
+};

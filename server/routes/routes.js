@@ -1,3 +1,5 @@
+'use strict';
+
 //Main dependencies
 var nconf  = require('nconf');
 
