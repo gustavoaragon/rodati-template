@@ -26,7 +26,6 @@ This is a node.js project template, created by Rodati Team.
 | request                         | Simplified HTTP request library. |
 | lodash                          | A utility library. |
 | mocha                           | Test framework. |
-| supertest                       | HTTP assertions library. |
 
 
 ## TODO
