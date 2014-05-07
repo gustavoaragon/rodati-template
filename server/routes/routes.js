@@ -1,25 +1,15 @@
 'use strict';
 
-//Main dependencies
-var nconf  = require('nconf');
-
-//Config
-var config = nconf.get();
-var paths  = config.app.paths;
-
-//Loader
-var loader = require(paths.libraries + '/loader');
-
 //Export
 module.exports = function (app) {
 
     //Index
-    app.get('/', loader.controller('hello').index);
+    app.get('/', app.controllers.hello.index);
 
     //Hello
-    app.get('/hello', loader.controller('hello').world);
+    app.get('/hello', app.controllers.hello.world);
 
     //Team
-    app.get('/team', loader.middleware('version'), loader.controller('hello').team);
+    app.get('/team', app.middlewares.headers.version, app.controllers.hello.team);
 
 };

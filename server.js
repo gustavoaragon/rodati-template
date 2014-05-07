@@ -1,11 +1,18 @@
 'use strict';
 
-//App root
-var path  = require('path');
-var root  = path.normalize(__dirname);
+//Enviroment
+var env   = process.env.NODE_ENV || 'development';
 
-//Init
-require(root + '/server/libraries/init')(root);
+//Configuration
+var path  = require('path');
+var nconf = require('nconf');
+var root  = path.normalize(__dirname);
+nconf.argv().env().file({ file: root + '/server/config/' + env + '.json' });
+nconf.set('app:paths', {
+    'root': root,
+    'server': root + '/server',
+    'public': root + '/public'
+});
 
 //Server
 module.exports = require(root + '/server/libraries/express')();

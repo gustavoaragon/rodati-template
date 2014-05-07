@@ -4,6 +4,7 @@
 var express      = require('express');
 var nconf        = require('nconf');
 var dust         = require('adaro');
+var load         = require('express-load');
 
 // Middlewares
 var bodyParser   = require('body-parser');
@@ -22,9 +23,6 @@ var ws           = config.app.views.ws;
 var cache        = config.app.views.cache;
 var logger       = config.app.logger.level;
 
-//Loader
-var loader       = require(paths.libraries + '/loader');
-
 module.exports = function () {
 
     var app = express();
@@ -35,7 +33,7 @@ module.exports = function () {
         'cache': false
     }));
     app.set('view engine', 'dust');
-    app.set('views', paths.views);
+    app.set('views', paths.server + '/views');
 
     //Favicon
     app.use(favicon(paths.public + '/images/favicon.ico'));
@@ -56,8 +54,13 @@ module.exports = function () {
     //Public
     app.use(express.static(paths.public));
 
-    //Routes
-    require(paths.routes + '/routes')(app);
+    //Load skeleton
+    load('helpers', {cwd: 'server'})
+    .then('models', {cwd: 'server'})
+    .then('middlewares', {cwd: 'server'})
+    .then('controllers', {cwd: 'server'})
+    .then('routes', {cwd: 'server'})
+    .into(app);
 
     //404 error
     app.use(function(req, res){

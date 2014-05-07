@@ -9,10 +9,7 @@ var nconf   = require('nconf');
 
 //Config
 var config = nconf.get();
-var paths  = config.app.paths;
 
-//Loader
-var loader  = require(paths.libraries + '/loader');
 
 //Index
 exports.index = function (req, res) {
@@ -33,7 +30,7 @@ exports.world = function (req, res) {
 //Team
 exports.team = function (req, res) {
 
-    var model = loader.model('team');
+    var model = req.app.models.team;
 
     res.send(model);
 
