@@ -17,7 +17,7 @@ var favicon      = require('serve-favicon');
 //Config
 var config       = nconf.get();
 var paths        = config.app.paths;
-var port         = config.app.port;
+var port         = process.env.PORT || config.app.port;
 var secret       = config.app.secret;
 var ws           = config.app.views.ws;
 var cache        = config.app.views.cache;
