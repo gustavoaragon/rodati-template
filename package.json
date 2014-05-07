@@ -16,6 +16,7 @@
     "morgan": "~1.0.1",
     "compression": "~1.0.2",
     "serve-favicon": "~2.0.0",
+    "express-load": "~1.1.14",
     "nconf": "~0.6.9",
     "adaro": "~0.1.5",
     "dustjs-linkedin": "~2.3.4",
@@ -24,8 +25,7 @@
     "async": "~0.8.0",
     "q": "~1.0.1",
     "lodash": "~2.4.1",
-    "request": "~2.34.0",
-    "express-load": "~1.1.14"
+    "request": "~2.34.0"
   },
   "devDependencies": {
     "grunt": "~0.4.4",

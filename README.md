@@ -15,7 +15,7 @@ This is a node.js project template, created by Rodati Team.
 | morgan                          | Express 4.0 middleware. |
 | compression                     | Express 4.0 middleware. |
 | serve-favicon                   | Express 4.0 middleware. |
-| serve-favicon                   | Express 4.0 middleware. |
+| express-load                    | Autoload scripts for logical file separation. |
 | nconf                           | Hierarchical node.js configuration. |
 | adaro                           | Dust.js view renderer for express. |
 | dustjs-linkedin                 | Adaro dependency. |
@@ -28,3 +28,8 @@ This is a node.js project template, created by Rodati Team.
 | mocha                           | Test framework. |
 | supertest                       | HTTP assertions library. |
 
+
+## TODO
+
+- Explain app structure
+- Explain app setup
