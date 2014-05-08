@@ -17,7 +17,7 @@ var favicon      = require('serve-favicon');
 //Config
 var config       = nconf.get();
 var paths        = config.app.paths;
-var port         = process.env.PORT || config.app.port;
+var port         = config.app.port;
 var secret       = config.app.secret;
 var ws           = config.app.views.ws;
 var cache        = config.app.views.cache;
@@ -29,7 +29,6 @@ module.exports = function () {
 
     //View engine
     app.engine('dust', dust.dust({
-        'layout': 'layouts/main',
         'cache': false
     }));
     app.set('view engine', 'dust');

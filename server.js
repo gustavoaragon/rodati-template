@@ -1,7 +1,7 @@
 'use strict';
 
 //Enviroment
-var env   = process.env.NODE_ENV || 'development';
+var env  = process.env.NODE_ENV || 'development';
 
 //Configuration
 var path  = require('path');
@@ -13,6 +13,7 @@ nconf.set('app:paths', {
     'server': root + '/server',
     'public': root + '/public'
 });
+nconf.set('app:port', (Number(process.env.PORT) || nconf.get('app:port')));
 
 //Server
 module.exports = require(root + '/server/libraries/express')();
