@@ -10,7 +10,7 @@ var nconf = require('nconf');
 var root  = path.normalize(__dirname);
 var file  = root + '/server/config/' + env + '.json';
 
-//Check if exist the configuration file
+//Check if the configuration file exists
 fs.exists(file, function(exists) {
 
     if(exists) {
