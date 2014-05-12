@@ -26,7 +26,9 @@
     "q": "~1.0.1",
     "lodash": "~2.4.1",
     "request": "~2.34.0",
-    "newrelic": "~1.5.4"
+    "newrelic": "~1.5.4",
+    "jugglingdb": "~0.2.14",
+    "jugglingdb-mongodb": "0.0.4-3"
   },
   "devDependencies": {
     "grunt": "~0.4.4",

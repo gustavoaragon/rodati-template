@@ -24,8 +24,8 @@ fs.exists(file, function(exists) {
         });
         nconf.set('app:port', (Number(process.env.PORT) || nconf.get('app:port')));
 
-        //Server
-        module.exports = require(root + '/server/libraries/express')();
+        //App
+        module.exports = require(root + '/server/core/app')();
 
     } else {
 
