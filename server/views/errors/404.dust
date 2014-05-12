@@ -1,1 +1,9 @@
-<h1 class="text-center">Página no encontrada: {url}</h1>
+{>"layouts/main" /}
+
+{<title}
+	Page not found
+{/title}
+
+{<body}
+	<h1 class="text-center">{url}</h1>
+{/body}

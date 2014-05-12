@@ -1,1 +1,11 @@
-<h1 class="text-center">Hubo un error en la app: {error}</h1>
+{>"layouts/main" /}
+
+{<title}
+	There was an error on the app
+{/title}
+
+{<body}
+	<pre>
+		{error}
+	</pre>
+{/body}
