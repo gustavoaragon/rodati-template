@@ -22,6 +22,7 @@ var secret       = config.app.secret;
 var ws           = config.app.views.ws;
 var cache        = config.app.views.cache;
 var logger       = config.app.logger.level;
+var newrelic     = config.app.logger.newrelic;
 
 module.exports = function () {
 
@@ -81,14 +82,14 @@ module.exports = function () {
 
         // default to plain-text. send()
         res.type('txt').send('Not found');
-    
+
     });
 
     //500 error
     app.use(function(err, req, res){
 
         res.status(err.status || 500);
-        
+
         res.render('errors/500', { error: err });
 
     });
@@ -96,11 +97,20 @@ module.exports = function () {
     //White space supression
     if(ws === false){
 
-        dust.optimizers.format = function(ctx, node) { 
-            return node; 
+        dust.optimizers.format = function(ctx, node) {
+            return node;
         };
 
     }
+
+
+    //Enable newrelic
+    if(newrelic === true){
+
+        require('newrelic');
+
+    }
+
 
     //Start
     app.listen(port);
