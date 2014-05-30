@@ -22,11 +22,11 @@ module.exports = function () {
     //Init settings
     settings.init(app, config);
 
-    //Init express middlewares
-    middlewares.init(app, config);
-
     //Load skeleton app
     load.init(app, config);
+
+    //Init express middlewares
+    middlewares.init(app, config);
 
     //Set errors
     errors.init(app, config);

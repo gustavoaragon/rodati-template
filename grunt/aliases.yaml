@@ -1,6 +1,9 @@
 init:
+    - 'checkDependencies'
     - 'sass'
+    - 'cssmin'
     - 'browserify'
+    - 'uglify'
 
 dev:
     - 'init'

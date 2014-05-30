@@ -1,16 +1,24 @@
-module.exports = {
+module.exports = function (grunt, options) {
 
-    'rodati': {
+    return {
 
-        options: {
-            outputStyle: 'nested',
-            imagePath: 'public/images/'
-        },
+        'rodati': {
 
-        files: {
-            'public/css/main.css': 'public/sass/main.scss'
+            options: {
+                outputStyle: 'nested',
+                imagePath: '../images'
+            },
+
+            files: grunt.file.expandMapping(
+                ['public/sass/*.scss'], '.', {
+                ext: '.css',
+                rename: function(destBase, destPath) {
+                    return destPath.replace('sass', 'css');
+                }
+            })
+
         }
 
-    }
+    };
 
 };
