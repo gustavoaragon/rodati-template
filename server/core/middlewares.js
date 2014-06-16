@@ -30,4 +30,4 @@ exports.init = function (app, config) {
     app.use(cookieParser(config.app.secret));
     app.use(session());
 
-}
+};

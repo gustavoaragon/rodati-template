@@ -3,9 +3,10 @@
 exports.init = function (app, config) {
 
     //Enable newrelic based on the configuration
-    if(config.app.logger.newrelic === true){
+    if(config.app.newrelic.enabled === true){
 
-        require('newrelic');
+        var newrelic = require('newrelic');
+        app.locals.newrelic = newrelic;
 
     }
 

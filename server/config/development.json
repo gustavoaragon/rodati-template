@@ -7,8 +7,30 @@
       "cache": false
     },
     "logger": {
-      "level": "dev",
-      "newrelic": false
+      "http": "dev",
+      "console": {
+        "level": "info",
+        "silent": false,
+        "colorize": true
+      },
+      "file": {
+        "level": "debug",
+        "silent": false,
+        "filename": "server.log"
+      }
+    },
+    "newrelic": {
+      "enabled": false,
+      "config": {
+        "application_id": "rodati-template",
+        "app_name": [
+          "rodati-template"
+        ],
+        "license_key": "<license>",
+        "logging": {
+          "level": "trace"
+        }
+      }
     }
   },
   "dbs": {

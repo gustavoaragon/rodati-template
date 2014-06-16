@@ -11,6 +11,7 @@ var middlewares = require('./middlewares');
 var errors      = require('./errors');
 var load        = require('./load');
 var newrelic    = require('./newrelic');
+var winston     = require('./winston');
 
 module.exports = function () {
 
@@ -30,6 +31,9 @@ module.exports = function () {
 
     //Set errors
     errors.init(app, config);
+
+    //Winston
+    winston.init(app, config);
 
     //Newrelic
     newrelic.init(app, config);
