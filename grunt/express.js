@@ -2,9 +2,9 @@ module.exports = {
 
     'rodati': {
 
-      options: {
-            script: 'server.js'
-      }
+		options: {
+			script: 'server.js'
+		}
 
     }
 
