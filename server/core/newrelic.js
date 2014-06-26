@@ -10,4 +10,4 @@ exports.init = function (app, config) {
 
     }
 
-}
+};

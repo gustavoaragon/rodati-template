@@ -33,4 +33,4 @@ exports.init = function (app) {
 
     });
 
-}    
+}; 

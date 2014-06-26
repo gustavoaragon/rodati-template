@@ -14,4 +14,4 @@ exports.init = function (app, config) {
     //Set logging into the filesystem
     winston.add(winston.transports.File, config.app.logger.file);
 
-}
+};

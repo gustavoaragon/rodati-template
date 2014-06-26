@@ -3,7 +3,7 @@
 //Main dependencies
 var load = require('express-load');
 
-exports.init = function (app, config) {
+exports.init = function (app) {
 
     //Load skeleton
     load('libraries', {cwd: 'server'})
@@ -14,4 +14,4 @@ exports.init = function (app, config) {
     .then('routes', {cwd: 'server'})
     .into(app);
 
-}
+};
