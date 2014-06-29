@@ -12,7 +12,7 @@ module.exports = {
                 'grunt/**',
             ],
 
-            ext: 'js,json,dust',
+            ext: 'js,json',
 
             env: {
                 NODE_ENV: 'development'
