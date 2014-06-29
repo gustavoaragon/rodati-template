@@ -1,9 +1,18 @@
 {
-    "env": {
-        "node": true
-    },
-
-    "rules": {
-        "quotes": "single",
-    }
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "quotes": [
+      1,
+      "single"
+    ],
+    "no-use-before-define": 0,
+    "no-underscore-dangle": 0,
+    "new-cap": 1,
+    "camelcase": 1,
+    "no-unused-vars": 1,
+    "consistent-return": 1
+  }
 }
