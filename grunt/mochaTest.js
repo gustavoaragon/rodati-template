@@ -1,13 +1,13 @@
 module.exports = {
 
-    'rodati': {
+	'rodati': {
 
 		options: {
 			reporter: 'spec'
 		},
 
-        src: ['test/**/*.js']
+		src: ['test/**/*.js']
 
-    }
+	}
 
 };

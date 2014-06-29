@@ -1,13 +1,10 @@
-init:
-    - 'checkDependencies'
-    - 'sass'
-    - 'cssmin'
-    - 'browserify'
-    - 'uglify'
-
 dev:
-    - 'init'
+    - 'checkDependencies'
     - 'concurrent'
+
+optimize:
+    - 'cssmin'
+    - 'uglify'
 
 test:
     - 'express'

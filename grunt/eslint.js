@@ -4,7 +4,7 @@ module.exports = {
 
 		files: {
 			src: ['server/*.js', 'server/**/*.js']
-		},
+		}
 
     }
 
