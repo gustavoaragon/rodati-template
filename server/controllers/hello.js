@@ -1,37 +1,37 @@
 'use strict';
 
 //Main dependencies
-var q       = require('q');
-var async   = require('async');
-var _       = require('lodash');
+var q = require('q');
+var async = require('async');
+var _ = require('lodash');
 var winston = require('winston');
-var nconf   = require('nconf');
+var nconf = require('nconf');
 
 //Config
 var config = nconf.get();
 
 
 //Index
-exports.index = function (req, res) {
+exports.index = function(req, res) {
 
-    winston.info('Hello index');
+	winston.info('Hello index');
 
-    res.send('index');
+	res.send('index');
 
 };
 
 //World
-exports.world = function (req, res) {
+exports.world = function(req, res) {
 
-    res.render('hello/world');
+	res.render('hello/world');
 
 };
 
 //Team
-exports.team = function (req, res) {
+exports.team = function(req, res) {
 
-    var model = req.app.models.team;
+	var model = req.app.models.team;
 
-    res.send(model);
+	res.send(model);
 
 };

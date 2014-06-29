@@ -1,15 +1,15 @@
 module.exports = {
-	"team": [
+	'team': [
 		{
-			"name": "leandro"
-		},{
-			"name": "eze"
-		},{
-			"name": "julian"
-		},{
-			"name": "miguel"
-		},{
-			"name": "etc"
+			'name': 'leandro'
+		}, {
+			'name': 'eze'
+		}, {
+			'name': 'julian'
+		}, {
+			'name': 'miguel'
+		}, {
+			'name': 'etc'
 		}
 	]
 };
