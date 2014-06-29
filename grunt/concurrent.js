@@ -1,13 +1,13 @@
 module.exports = {
 
-    'rodati': {
+	'rodati': {
 
-        tasks: ['nodemon', 'watch'],
+		tasks: ['nodemon', 'watch'],
 
-        options: {
-            logConcurrentOutput: true
-        }
+		options: {
+			logConcurrentOutput: true
+		}
 
-    }
+	}
 
 };

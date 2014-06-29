@@ -1,39 +1,39 @@
 module.exports = {
 
-    'rodati': {
+	'rodati': {
 
-        script: 'server.js',
+		script: 'server.js',
 
-        options: {
+		options: {
 
-            ignore: [
-                'node_modules/**',
-                'public/**/*.js',
-                'grunt/**',
-            ],
+			ignore: [
+				'node_modules/**',
+				'public/**/*.js',
+				'grunt/**',
+			],
 
-            ext: 'js,json',
+			ext: 'js,json',
 
-            env: {
-                NODE_ENV: 'development'
-            },
+			env: {
+				NODE_ENV: 'development'
+			},
 
-            callback: function (nodemon) {
+			callback: function (nodemon) {
 
-                nodemon.on('log', function (event) {
-                    console.log(event.colour);
-                });
+				nodemon.on('log', function (event) {
+					console.log(event.colour);
+				});
 
-                nodemon.on('restart', function () {
-                    setTimeout(function() {
-                        require('fs').writeFileSync('.rebooted', 'rebooted');
-                    }, 1000);
-                });
+				nodemon.on('restart', function () {
+					setTimeout(function() {
+						require('fs').writeFileSync('.rebooted', 'rebooted');
+					}, 1000);
+				});
 
-            }
+			}
 
-        }
+		}
 
-    }
+	}
 
 };

@@ -1,11 +1,11 @@
 module.exports = {
 
-    'rodati': {
+	'rodati': {
 
 		files: {
 			src: ['server/*.js', 'server/**/*.js']
 		}
 
-    }
+	}
 
 };

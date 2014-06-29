@@ -1,11 +1,11 @@
 module.exports = {
 
-    'rodati': {
+	'rodati': {
 
 		options: {
 			script: 'server.js'
 		}
 
-    }
+	}
 
 };

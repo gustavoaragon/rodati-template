@@ -1,13 +1,13 @@
 module.exports = {
 
-    'rodati': {
+	'rodati': {
 
-        options: {
-            test: true
-        },
+		options: {
+			test: true
+		},
 
-        src: ['test/functional/*.js']
+		src: ['test/functional/*.js']
 
-    }
+	}
 
 };
