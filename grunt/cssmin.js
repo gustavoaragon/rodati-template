@@ -1,16 +1,14 @@
-module.exports = function (grunt, options) {
+module.exports = function(grunt, options) {
 
 	return {
 
 		'rodati': {
 
 			files: grunt.file.expandMapping(
-				['public/css/*.css', '!public/css/*.min.css'], '.', {
+			['public/css/*.css', '!public/css/*.min.css'], '.', {
 				ext: '.min.css'
 			})
-
 		}
-
 	};
 
 };

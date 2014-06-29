@@ -3,7 +3,5 @@ module.exports = {
 	'rodati': {
 
 		this: {}
-	
 	}
-
 };

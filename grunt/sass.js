@@ -1,4 +1,4 @@
-module.exports = function (grunt, options) {
+module.exports = function(grunt, options) {
 
 	return {
 
@@ -10,15 +10,13 @@ module.exports = function (grunt, options) {
 			},
 
 			files: grunt.file.expandMapping(
-				['public/sass/*.scss'], '.', {
+			['public/sass/*.scss'], '.', {
 				ext: '.css',
 				rename: function(destBase, destPath) {
 					return destPath.replace('sass', 'css');
 				}
 			})
-
 		}
-
 	};
 
 };

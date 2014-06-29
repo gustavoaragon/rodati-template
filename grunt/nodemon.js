@@ -18,22 +18,19 @@ module.exports = {
 				NODE_ENV: 'development'
 			},
 
-			callback: function (nodemon) {
+			callback: function(nodemon) {
 
-				nodemon.on('log', function (event) {
+				nodemon.on('log', function(event) {
 					console.log(event.colour);
 				});
 
-				nodemon.on('restart', function () {
+				nodemon.on('restart', function() {
 					setTimeout(function() {
 						require('fs').writeFileSync('.rebooted', 'rebooted');
 					}, 1000);
 				});
 
 			}
-
 		}
-
 	}
-
 };

@@ -5,7 +5,5 @@ module.exports = {
 		files: {
 			'public/js/main.js': ['public/js/modules/main/main.js']
 		}
-
 	}
-
 };

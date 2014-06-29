@@ -7,7 +7,5 @@ module.exports = {
 		},
 
 		src: ['test/functional/*.js']
-
 	}
-
 };
