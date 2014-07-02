@@ -16,18 +16,20 @@ exports.init = function(app, config) {
 
 	//Public
 	app.use(express.static(config.app.paths.public));
+	
+	//Cookie parser
+	app.use(cookieParser(config.app.secret));
 
 	//Parse request bodies
 	app.use(bodyParser());
+
+	//Session support
+	app.use(session());
 
 	//Favicon
 	app.use(favicon(config.app.paths.public + '/images/favicon.ico'));
 
 	//HTTP logger
-	app.use(morgan(config.app.logger.level));
-
-	//Session support
-	app.use(cookieParser(config.app.secret));
-	app.use(session());
+	app.use(morgan(config.app.logger.http));
 
 };
