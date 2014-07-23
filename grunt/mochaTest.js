@@ -6,6 +6,8 @@ module.exports = {
 			reporter: 'spec'
 		},
 
-		src: ['test/**/*.js']
+		src: ['test/unit/**/*.js']
+	
 	}
+
 };

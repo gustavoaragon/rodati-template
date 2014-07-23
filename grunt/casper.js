@@ -6,6 +6,8 @@ module.exports = {
 			test: true
 		},
 
-		src: ['test/functional/*.js']
+		src: ['test/functional/*.js', 'test/functional/**/*.js']
+
 	}
+
 };

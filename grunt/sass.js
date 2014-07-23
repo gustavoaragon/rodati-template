@@ -1,4 +1,6 @@
-module.exports = function(grunt, options) {
+'use strict';
+
+module.exports = function(grunt) {
 
 	return {
 
@@ -16,7 +18,9 @@ module.exports = function(grunt, options) {
 					return destPath.replace('sass', 'css');
 				}
 			})
+
 		}
+
 	};
 
 };

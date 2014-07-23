@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
 
 	'rodati': {
@@ -9,7 +11,7 @@ module.exports = {
 			ignore: [
 				'node_modules/**',
 				'public/**/*.js',
-				'grunt/**',
+				'grunt/**'
 			],
 
 			ext: 'js,json',
@@ -31,6 +33,9 @@ module.exports = {
 				});
 
 			}
+
 		}
+
 	}
+
 };

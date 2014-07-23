@@ -6,4 +6,5 @@ module.exports = {
 			src: ['server/*.js', 'server/**/*.js']
 		}
 	}
+
 };
