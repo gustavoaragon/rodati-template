@@ -3,6 +3,12 @@ rodati-template
 
 This is a node.js project template, created by Rodati Team.
 
+Clone this repo using the `--recursive` flag:
+
+```
+$ git clone https://github.com/rodati/rodati-template.git --recursive
+```
+
 
 ## Module list
 
