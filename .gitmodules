@@ -2,3 +2,4 @@
 [submodule "grunt"]
 	path = grunt
 	url = https://github.com/rodati/rodati-grunt-tasks.git
+        branch = master
