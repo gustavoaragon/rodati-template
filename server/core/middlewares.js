@@ -21,10 +21,14 @@ exports.init = function(app, config) {
 	app.use(cookieParser(config.app.secret));
 
 	//Parse request bodies
-	app.use(bodyParser());
+	app.use(bodyParser.json());
 
 	//Session support
-	app.use(session());
+	app.use(session({
+		secret: config.app.secret,
+		resave: true,
+		saveUninitialized: true
+	}));
 
 	//Favicon
 	app.use(favicon(config.app.paths.public + '/images/favicon.ico'));
