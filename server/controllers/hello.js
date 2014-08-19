@@ -1,15 +1,7 @@
 'use strict';
 
 //Main dependencies
-var q = require('q');
-var async = require('async');
-var _ = require('lodash');
 var winston = require('winston');
-var nconf = require('nconf');
-
-//Config
-var config = nconf.get();
-
 
 //Index
 exports.index = function(req, res) {

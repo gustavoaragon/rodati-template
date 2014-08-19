@@ -22,6 +22,9 @@ exports.init = function(app, config) {
 
 	//Parse request bodies
 	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({
+		extended: true
+	}));
 
 	//Session support
 	app.use(session({
