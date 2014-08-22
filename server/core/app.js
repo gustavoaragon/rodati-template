@@ -17,6 +17,14 @@ module.exports = function() {
 
 	var app = express();
 
+	var skeleton = [
+		'helpers',
+		'models',
+		'middlewares',
+		'controllers',
+		'routes'
+	];
+
 	//Init template engine
 	engine.init(app, config);
 
@@ -27,7 +35,7 @@ module.exports = function() {
 	middlewares.init(app, config);
 
 	//Load skeleton app
-	load.init(app, config);
+	load.init(app, config, skeleton);
 
 	//Set errors
 	errors.init(app, config);

@@ -3,27 +3,18 @@
 //Main dependencies
 var load = require('express-load');
 
-exports.init = function(app) {
+exports.init = function(app, config, skeleton) {
 
-	//Load skeleton
-	load('libraries', {
-		cwd: 'server'
-	})
-	.then('helpers', {
-		cwd: 'server'
-	})
-	.then('models', {
-		cwd: 'server'
-	})
-	.then('middlewares', {
-		cwd: 'server'
-	})
-	.then('controllers', {
-		cwd: 'server'
-	})
-	.then('routes', {
-		cwd: 'server'
-	})
-	.into(app);
+	var loadConfig = {
+		cwd: 'server',
+		ignore: '_'
+	};
+
+	//Load each path
+	skeleton.forEach(function(path){
+
+		load(path, loadConfig).into(app);
+
+	});
 
 };
