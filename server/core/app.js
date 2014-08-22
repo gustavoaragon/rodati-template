@@ -17,6 +17,7 @@ module.exports = function() {
 
 	var app = express();
 
+	//The skeleton of the app
 	var skeleton = [
 		'helpers',
 		'models',
