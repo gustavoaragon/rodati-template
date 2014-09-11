@@ -15,7 +15,7 @@ exports.index = function(req, res) {
 //World
 exports.world = function(req, res) {
 
-	res.render('hello/world');
+	res.render('hello/index');
 
 };
 

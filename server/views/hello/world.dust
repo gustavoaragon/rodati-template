@@ -1,9 +1,0 @@
-{>"layouts/main" /}
-
-{<title}
-	Hello World
-{/title}
-
-{<body}
-	<h1 class="text-center">Hello World</h1>
-{/body}

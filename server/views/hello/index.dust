@@ -1,0 +1,39 @@
+{>"layouts/main" /}
+
+{<title}
+	Hello World
+{/title}
+
+{<body}
+	<div id="world" class="world text-center">
+		<h1></h1>
+	</div>
+{/body}
+
+{<js}
+	<script src="/js/vendor/pubsub.js"></script>
+	<script src="/js/hello.js"></script>
+	<script>
+		$(document).ready(function(){
+
+			//Init the example
+			hello.world.init($('#world'), {
+				words: ['Hello', 'World']
+			});
+
+			//Send and event over pubsub
+			PubSub.publish('incoming', {
+				important: 'information'
+			});
+
+		});
+	</script>
+{/js}
+
+{<css}
+	<style>
+		h1{
+			color: #eb5d40;
+		}
+	</style>
+{/css}
