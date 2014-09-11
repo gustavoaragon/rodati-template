@@ -30,7 +30,8 @@
     "q": "~1.0.1",
     "request": "^2.40.0",
     "serve-favicon": "~2.0.0",
-    "winston": "~0.7.3"
+    "winston": "~0.7.3",
+    "winston-newrelic": "^0.1.4"
   },
   "devDependencies": {
     "browserify": "^5.10.0",

@@ -3,14 +3,14 @@
     "port": "3000",
     "secret": "<secret>",
     "views": {
-      "ws": true,
-      "cache": true
+      "ws": false,
+      "cache": false
     },
     "logger": {
-      "http": "default",
+      "http": "dev",
       "console": {
         "level": "info",
-        "silent": false,
+        "silent": true,
         "colorize": true
       },
       "file": {
@@ -20,11 +20,11 @@
       }
     },
     "newrelic": {
-      "enabled": true,
+      "enabled": false,
       "config": {
-        "application_id": "rodati-template-production",
+        "application_id": "rodati-template",
         "app_name": [
-          "rodati-template-production"
+          "rodati-template"
         ],
         "license_key": "<license>",
         "logging": {

@@ -22,14 +22,15 @@
     "newrelic": {
       "enabled": true,
       "config": {
-        "application_id": "rodati-template",
+        "application_id": "rodati-template-staging",
         "app_name": [
-          "rodati-template"
+          "rodati-template-staging"
         ],
         "license_key": "<license>",
         "logging": {
-          "level": "trace"
-        }
+          "level": "info"
+        },
+        "capture_params": true
       }
     }
   }

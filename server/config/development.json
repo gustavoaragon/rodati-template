@@ -28,8 +28,9 @@
         ],
         "license_key": "<license>",
         "logging": {
-          "level": "trace"
-        }
+          "level": "info"
+        },
+        "capture_params": true
       }
     }
   }
