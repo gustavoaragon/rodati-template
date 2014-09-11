@@ -11,8 +11,8 @@
 {/body}
 
 {<js}
-	<script src="/js/vendor/pubsub.js"></script>
-	<script src="/js/hello.js"></script>
+	{@js src="/js/vendor/pubsub.js" /}
+	{@js src="/js/hello.js" /}
 	<script>
 		$(document).ready(function(){
 

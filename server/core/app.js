@@ -17,14 +17,10 @@ module.exports = function() {
 
 	var app = express();
 
-	//The skeleton of the app
-	var skeleton = [
-		'helpers',
-		'models',
-		'middlewares',
-		'controllers',
-		'routes'
-	];
+	//Load app helpers
+	load.init(app, config, [
+		'helpers'
+	]);
 
 	//Init template engine
 	engine.init(app, config);
@@ -35,8 +31,13 @@ module.exports = function() {
 	//Init express middlewares
 	middlewares.init(app, config);
 
-	//Load skeleton app
-	load.init(app, config, skeleton);
+	//Load app models, middlewares, controllers an routes
+	load.init(app, config, [
+		'models',
+		'middlewares',
+		'controllers',
+		'routes'
+	]);
 
 	//Set errors
 	errors.init(app, config);

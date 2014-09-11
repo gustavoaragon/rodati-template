@@ -12,6 +12,9 @@ exports.init = function(app, config) {
 
 	app.set('view engine', 'dust');
 
+	//Init dust helpers
+	app.helpers.dust.index.init(dust, config);
+
 	//White space supression
 	if (config.app.views.ws === false) {
 

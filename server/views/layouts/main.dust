@@ -12,14 +12,14 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         {+meta /}
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="/css/main.css" rel="stylesheet" media="screen">
+        {@css href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css" rel="stylesheet" media="screen" /}
+        {@css href="/css/main.css" rel="stylesheet" media="screen" /}
         {+css /}
     </head>
     <body>
         {+body /}
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        {@js src="//code.jquery.com/jquery-1.11.1.js" /}
+        {@js src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.js" /}
         {+js /}
     </body>
 </html>

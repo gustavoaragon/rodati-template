@@ -46,7 +46,7 @@ function init($context, config){
  */
 function _render(){
 
-    //Using utils, check if is config.words is an array
+    //Using utils, check if config.words is an array
     if(util.isArray(_config.words) === true){
 
         //Join every word
