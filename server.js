@@ -1,40 +1,63 @@
 'use strict';
 
-//Enviroment
-var env = process.env.NODE_ENV || 'development';
-
-//Configuration
-var path = require('path');
+/**
+ * Global modules
+ */
 var fs = require('fs');
+var path = require('path');
 var nconf = require('nconf');
-var root = path.normalize(__dirname);
-var file = root + '/server/config/' + env + '.json';
 
-//Check if the configuration file exists
-fs.exists(file, function(exists) {
+/**
+ * Private variables
+ */
+var _env = process.env.NODE_ENV || 'development';
+var _root = path.normalize(__dirname);
+var _config = _root + '/server/config/' + _env + '.json';
+var _version = require(_root + '/package.json').version;
 
-	if (exists) {
+/**
+ * Init the application if all conditions are availables
+ */
+function init(){
 
-		//Set the configuration
-		nconf.argv().env().file({
-			file: file
-		});
-		nconf.set('app:paths', {
-			'root': root,
-			'server': root + '/server',
-			'public': root + '/public'
-		});
-		nconf.set('app:port', (Number(process.env.PORT) || nconf.get('app:port')));
+	//Check if the configuration file of the current environment exists
+	fs.exists(_config, function(exists) {
 
-		//App
-		module.exports = require(root + '/server/core/app')();
+		if (exists) {
 
-	} else {
+			//Set the configuration file
+			nconf.argv().env().file({
+				file: _config
+			});
 
-		var err = new Error('Configuration file not found. Check the config folder.');
+			//Set the version of the app
+			nconf.set('app:version', _version);
 
-		throw err;
+			//Set the main paths of the app
+			nconf.set('app:paths', {
+				'root': _root,
+				'server': _root + '/server',
+				'public': _root + '/public'
+			});
 
-	}
+			//Set the port of the app
+			nconf.set('app:port', (Number(process.env.PORT) || nconf.get('app:port')));
 
-});
+			//Export the intance of the app
+			module.exports = require(_root + '/server/core/app')();
+
+		//If the config file doen't exists, throw an error
+		} else {
+
+			var err = new Error('Configuration file not found. Check the config folder.');
+
+			throw err;
+
+		}
+
+	});
+
+}
+
+//Init the app
+init();

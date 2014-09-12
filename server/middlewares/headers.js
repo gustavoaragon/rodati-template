@@ -1,19 +1,34 @@
 'use strict';
 
-//Main dependencies
+/**
+ * Global modules
+ */
 var nconf = require('nconf');
 
-//Config
-var config = nconf.get();
+/**
+ * Private variables
+ */
+var _config = nconf.get();
 
-//Package
-var pjson = require(config.app.paths.root + '/package.json');
+/**
+ * Init the middleware setting some HTTP headers
+ * @param  {object}   req  Request object
+ * @param  {object}   res  Response object
+ * @param  {function} next Connection callback
+ */
+function init(req, res, next){
 
-//Set the version of the app
-exports.version = function(req, res, next) {
+	//Set the version of the app
+	res.header('app-version', _config.app.version);
 
-	res.header('app-version', pjson.version);
-
+	//Continue the chain
 	next();
 
+}
+
+/**
+ * Public methods exported
+ */
+module.exports = {
+	init: init
 };
