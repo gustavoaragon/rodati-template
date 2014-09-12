@@ -1,7 +1,11 @@
 'use strict';
 
-// Loops over supplied object.
-// Based on: https://github.com/akdubya/dustjs/issues/9
+/**
+ * Loops over an object
+ * @see  https://github.com/akdubya/dustjs/issues/9
+ * @param  {object} dust   Dust intance of the app
+ * @return {string}        Chunk object with the key, value, index, lenght and lastIndex of the object
+ */
 module.exports = function(dust) {
 
 	dust.helpers.iterate = function(chunk, context, bodies, params) {

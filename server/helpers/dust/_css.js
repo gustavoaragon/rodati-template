@@ -1,6 +1,11 @@
 'use strict';
 
-//CSS management
+/**
+ * Determine the CSS to use depending on the enviroment of the app
+ * @param  {object} dust   Dust intance of the app
+ * @param  {object} config Configuration of the app
+ * @return {string}        <link href="<href>"" rel="<rel>" media="<media>">
+ */
 module.exports = function(dust, config) {
 
 	dust.helpers.css = function(chunk, context, bodies, params) {
