@@ -21,7 +21,7 @@
 				words: ['Hello', 'World']
 			});
 
-			//Send and event over pubsub
+			//Send an event over pubsub
 			PubSub.publish('incoming', {
 				important: 'information'
 			});
