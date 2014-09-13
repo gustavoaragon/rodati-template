@@ -17,7 +17,7 @@ function init(req, res){
 	newrelic.setTransactionName('hello');
 
 	//Example of use of winston
-	winston.info('This message is logged using winston');
+	winston.info('This message was logged using winston');
 
 	//Render the view
 	res.render('hello/index');

@@ -1,0 +1,24 @@
+{>"layouts/main" /}
+
+{<title}
+	About
+{/title}
+
+{<body}
+	<div id="about" class="about text-center">
+		<h1>{developers.name}</h1>
+		<ul>
+			{#developers.members}
+				<li>{.}</li>
+			{/developers.members}
+		</ul>
+	</div>
+{/body}
+
+{<css}
+	<style>
+		h1{
+			color: #eb5d40;
+		}
+	</style>
+{/css}
