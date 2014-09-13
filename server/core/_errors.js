@@ -1,13 +1,18 @@
 'use strict';
 
-exports.init = function(app) {
+/**
+ * Initialize the handlers for pages with HTTP errors
+ * @param  {object} app    Express instance
+ */
+function init(app){
 
 	//404 error
 	app.use(function(req, res) {
 
+		//Set the status
 		res.status(404);
 
-		// respond with html page
+		//Respond with html page
 		if (req.accepts('html')) {
 			res.render('errors/404', {
 				url: req.url
@@ -15,7 +20,7 @@ exports.init = function(app) {
 			return;
 		}
 
-		// respond with json
+		//Respond with json
 		if (req.accepts('json')) {
 			res.send({
 				error: 'Not found'
@@ -23,7 +28,7 @@ exports.init = function(app) {
 			return;
 		}
 
-		// default to plain-text. send()
+		//Default to plain-text. send()
 		res.type('txt').send('Not found');
 
 	});
@@ -31,6 +36,7 @@ exports.init = function(app) {
 	//500 error
 	app.use(function(err, req, res) {
 
+		//Set the status
 		res.status(err.status || 500);
 
 		res.render('errors/500', {
@@ -39,4 +45,11 @@ exports.init = function(app) {
 
 	});
 
+}
+
+/**
+ * Public methods exported
+ */
+module.exports = {
+    init: init
 };

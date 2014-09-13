@@ -1,38 +1,53 @@
 'use strict';
 
-//Main dependencies
+/**
+ * Global modules
+ */
 var express = require('express');
 var nconf = require('nconf');
-var config = nconf.get();
 
-var engine = require('./engine');
-var settings = require('./settings');
-var middlewares = require('./middlewares');
-var errors = require('./errors');
-var load = require('./load');
-var newrelic = require('./newrelic');
-var winston = require('./winston');
+/**
+ * Submodules
+ */
+var engine = require('./_engine');
+var settings = require('./_settings');
+var middlewares = require('./_middlewares');
+var errors = require('./_errors');
+var load = require('./_load');
+var newrelic = require('./_newrelic');
+var winston = require('./_winston');
 
-module.exports = function() {
+/**
+ * Private variables
+ */
+var _config = nconf.get();
+var _app;
 
-	var app = express();
+/**
+ * Init all submodule of the app
+ * @return {function} Instance of the app with all configurations loaded
+ */
+function init(){
+
+	//Create an instance of express
+	_app = express();
 
 	//Load app helpers
-	load.init(app, config, [
+	load.paths(_app, _config, [
 		'helpers'
 	]);
 
 	//Init template engine
-	engine.init(app, config);
+	engine.init(_app, _config);
 
 	//Init settings
-	settings.init(app, config);
+	settings.init(_app, _config);
 
 	//Init express middlewares
-	middlewares.init(app, config);
+	middlewares.init(_app, _config);
 
 	//Load app models, middlewares, controllers an routes
-	load.init(app, config, [
+	load.paths(_app, _config, [
 		'models',
 		'middlewares',
 		'controllers',
@@ -40,24 +55,40 @@ module.exports = function() {
 	]);
 
 	//Set errors
-	errors.init(app, config);
+	errors.init(_app, _config);
 
 	//Winston
-	winston.init(app, config);
+	winston.init(_app, _config);
 
 	//Newrelic
-	newrelic.init(app, config);
+	newrelic.init(_app, _config);
 
 	//Start
-	app.listen(config.app.port);
+	_app.listen(_config.app.port);
 
-	//Log
+	//Log in the console
+	_log();
+
+	return _app;
+
+}
+
+/**
+ * Log the start of the app
+ */
+function _log(){
+
 	console.log('\n==============================');
 	console.log('Rodati');
-	console.log('Started on port: ' + config.app.port);
-	console.log('Enviroment: ' + app.get('env'));
+	console.log('Started on port: ' + _config.app.port);
+	console.log('Enviroment: ' + _app.get('env'));
 	console.log('==============================\n');
 
-	return app;
+}
 
+/**
+ * Public methods exported
+ */
+module.exports = {
+    init: init
 };

@@ -1,6 +1,8 @@
 'use strict';
 
-//Main dependencies
+/**
+ * Global modules
+ */
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -9,7 +11,12 @@ var morgan = require('morgan');
 var compression = require('compression');
 var favicon = require('serve-favicon');
 
-exports.init = function(app, config) {
+/**
+ * Add some middlewares (with their configuration) for the app
+ * @param  {object} app    Express instance
+ * @param  {object} config Object with the configuration of the app
+ */
+function init(app, config){
 
 	//Gzip
 	app.use(compression());
@@ -39,4 +46,11 @@ exports.init = function(app, config) {
 	//HTTP logger
 	app.use(morgan(config.app.logger.http));
 
+}
+
+/**
+ * Public methods exported
+ */
+module.exports = {
+    init: init
 };

@@ -43,8 +43,8 @@ function init(){
 			//Set the port of the app
 			nconf.set('app:port', (Number(process.env.PORT) || nconf.get('app:port')));
 
-			//Export the intance of the app
-			module.exports = require(_root + '/server/core/app')();
+			//Init the app and export the instance
+			module.exports = require(_root + '/server/core/app').init();
 
 		//If the config file doen't exists, throw an error
 		} else {

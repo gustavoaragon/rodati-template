@@ -1,6 +1,5 @@
 'use strict';
 
-//Export
 module.exports = function(app) {
 
 	//Index Route. Note the use of a middleware before the controller

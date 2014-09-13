@@ -2,11 +2,18 @@
 
 'use strict';
 
-//Main dependencies
+/**
+ * Global modules
+ */
 var winston = require('winston');
 var winstonNewrelic = require('winston-newrelic');
 
-exports.init = function(app, config) {
+/**
+ * Add transports to Winston depending on the configuration
+ * @param  {object} app    Express instance
+ * @param  {object} config Object with the configuration of the app
+ */
+function init(app, config){
 
 	//Remove the default transport
 	winston.remove(winston.transports.Console);
@@ -26,4 +33,11 @@ exports.init = function(app, config) {
 	
 	}
 
+}
+
+/**
+ * Public methods exported
+ */
+module.exports = {
+    init: init
 };
