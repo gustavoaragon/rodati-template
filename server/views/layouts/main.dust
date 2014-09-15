@@ -14,7 +14,7 @@
         {+meta /}
         {@newrelic /}
         {@css href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.css" rel="stylesheet" media="screen" /}
-        {@css href="/css/main.css" rel="stylesheet" media="screen" /}
+        {@css href="/css/base.css" rel="stylesheet" media="screen" /}
         {+css /}
     </head>
     <body>

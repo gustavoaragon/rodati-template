@@ -5,7 +5,7 @@
 {/title}
 
 {<body}
-	<div id="world" class="world text-center">
+	<div id="hello" class="hello text-center">
 		<h1></h1>
 	</div>
 {/body}
@@ -17,7 +17,7 @@
 		$(document).ready(function(){
 
 			//Init the example
-			hello.world.init($('#world'), {
+			hello.world.init($('#hello'), {
 				words: ['Hello', 'World']
 			});
 
@@ -31,9 +31,5 @@
 {/js}
 
 {<css}
-	<style>
-		h1{
-			color: #eb5d40;
-		}
-	</style>
+	{@css href="/css/hello.css" rel="stylesheet" media="screen" /}
 {/css}
