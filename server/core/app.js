@@ -81,7 +81,7 @@ function _log(){
 	console.log('\n==============================');
 	console.log('Rodati');
 	console.log('Started on port: ' + _config.app.port);
-	console.log('Enviroment: ' + _app.get('env'));
+	console.log('Environment: ' + _app.get('env'));
 	console.log('==============================\n');
 
 }

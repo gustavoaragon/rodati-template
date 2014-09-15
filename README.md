@@ -1,7 +1,14 @@
-rodati-template
+Rodati-template
 ===============
 
-This is a node.js project template, created by Rodati Team.
+This is a node.js project template created by the Rodati's developer team. The main purposes are:
+
+- Serve as template/boilerplate for another (nodejs) projects
+- Understand how a basic nodejs application works and the differences/similarities with another languages/projects
+- Know the conventions (coding style, formats), common practices (patterns, solutions) and tools (frameworks, modules, libraries) used internally by the team
+
+
+## Getting started
 
 Clone this repo using the `--recursive` flag:
 
@@ -9,32 +16,31 @@ Clone this repo using the `--recursive` flag:
 $ git clone https://github.com/rodati/rodati-template.git --recursive
 ```
 
+Install all the dependencies running:
 
-## Module list
+```
+$ npm install
+```
 
-| Package                         | Description   |
-| ------------------------------- |:-------------:|
-| express                         | Node.js web framework. |
-| body-parser                     | Express 4.0 middleware. |
-| cookie-parser                   | Express 4.0 middleware. |
-| express-session                 | Express 4.0 middleware. |
-| morgan                          | Express 4.0 middleware. |
-| compression                     | Express 4.0 middleware. |
-| serve-favicon                   | Express 4.0 middleware. |
-| express-load                    | Autoload scripts for logical file separation. |
-| nconf                           | Hierarchical node.js configuration. |
-| adaro                           | Dust.js view renderer for express. |
-| dustjs-linkedin                 | Adaro dependency. |
-| dustjs-helpers                  | Adaro dependency. |
-| winston                         | Logging library. |
-| q                               | A tool for making and composing asynchronous promises in JavaScript. |
-| async                           | Utility library that provides asynchronous control flow. |
-| request                         | Simplified HTTP request library. |
-| lodash                          | A utility library. |
-| mocha                           | Test framework. |
+And finally run (you need to have installed [Grunt](http://gruntjs.com/getting-started#installing-the-cli)):
 
+```
+$ grunt dev
+```
+
+If everything is OK, the console must show:
+
+```
+==============================
+Rodati
+Started on port: 3000
+Environment: development
+==============================
+```
 
 ## TODO
 
 - Explain app structure
-- Explain app setup
+- Conventions
+- Popular modules used
+- Patterns
