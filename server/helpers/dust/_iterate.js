@@ -15,7 +15,7 @@ module.exports = function(dust) {
 		for (var k in obj) {
 
 			chunk = chunk.render(bodies.block, context.push({
-				key: k, 
+				key: k,
 				value: obj[k],
 				index: Object.keys(obj).indexOf(k),
 				length: Object.keys(obj).length,

@@ -23,7 +23,7 @@ function init(app, config){
 
 	//Public
 	app.use(express.static(config.app.paths.public));
-	
+
 	//Cookie parser
 	app.use(cookieParser(config.app.secret));
 
