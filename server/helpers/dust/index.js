@@ -7,7 +7,7 @@ var path = require('path');
 var fs = require('fs');
 
 /**
-* This method when is invoked read all the JS files of the 
+* This method when is invoked read all the JS files of the
 * current directory and execute each module/file
 * @param  {object} dust dust instance to add new helpers
 * @param  {object} config JSON with the configuration of the app
@@ -33,5 +33,5 @@ function init(dust, config){
  * Public methods exported
  */
 module.exports = {
-    init: init
+	init: init
 };

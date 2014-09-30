@@ -18,6 +18,7 @@ var middlewares = require('./_middlewares');
 var errors = require('./_errors');
 var load = require('./_load');
 var winston = require('./_winston');
+var locals = require('./_locals');
 
 /**
  * Private variables
@@ -47,6 +48,9 @@ function init(){
 
 	//Init express middlewares
 	middlewares.init(_app, _config);
+
+	//Init locals variables
+	locals.init(_app, _config);
 
 	//Load app models, middlewares, controllers an routes
 	load.paths(_app, _config, [
