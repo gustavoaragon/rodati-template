@@ -35,6 +35,9 @@ function init(){
 	//Create an instance of express
 	_app = express();
 
+	//Winston
+	winston.init(_app, _config);
+
 	//Load app helpers
 	load.paths(_app, _config, [
 		'helpers'
@@ -63,9 +66,6 @@ function init(){
 	//Set errors
 	errors.init(_app, _config);
 
-	//Winston
-	winston.init(_app, _config);
-
 	//Start
 	_app.listen(_config.app.port);
 
@@ -83,7 +83,7 @@ function init(){
 function _log(){
 
 	console.log('\n==============================');
-	console.log('Rodati');
+	console.log('App: ' + _config.app.name);
 	console.log('Started on port: ' + _config.app.port);
 	console.log('Environment: ' + _app.get('env'));
 	console.log('==============================\n');

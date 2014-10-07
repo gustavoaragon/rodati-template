@@ -13,7 +13,7 @@ var nconf = require('nconf');
 var _env = process.env.NODE_ENV || 'development';
 var _root = path.normalize(__dirname);
 var _config = _root + '/server/config/' + _env + '.json';
-var _version = require(_root + '/package.json').version;
+var _pkg = require(_root + '/package.json');
 
 /**
  * Init the application if all conditions are availables
@@ -30,8 +30,11 @@ function init(){
 				file: _config
 			});
 
+			//Set the name of the app
+			nconf.set('app:name', _pkg.name);
+
 			//Set the version of the app
-			nconf.set('app:version', _version);
+			nconf.set('app:version', _pkg.version);
 
 			//Set the main paths of the app
 			nconf.set('app:paths', {
