@@ -44,7 +44,7 @@ function init(app, config){
 	app.use(favicon(config.app.paths.public + '/images/favicon.ico'));
 
 	//HTTP logger
-	app.use(morgan(config.app.logger.http));
+	app.use(morgan(config.logger.http));
 
 }
 

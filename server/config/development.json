@@ -5,19 +5,19 @@
     "views": {
       "ws": false,
       "cache": false
+    }
+  },
+  "logger": {
+    "http": "dev",
+    "console": {
+      "level": "info",
+      "silent": false,
+      "colorize": true
     },
-    "logger": {
-      "http": "dev",
-      "console": {
-        "level": "info",
-        "silent": false,
-        "colorize": true
-      },
-      "file": {
-        "level": "debug",
-        "silent": false,
-        "filename": "server.log"
-      }
+    "file": {
+      "level": "debug",
+      "silent": false,
+      "filename": "server.log"
     }
   },
   "newrelic": {

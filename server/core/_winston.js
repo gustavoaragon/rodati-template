@@ -18,10 +18,10 @@ function init(app, config){
 	winston.remove(winston.transports.Console);
 
 	//Set logging using the console
-	winston.add(winston.transports.Console, config.app.logger.console);
+	winston.add(winston.transports.Console, config.logger.console);
 
 	//Set logging into the filesystem
-	winston.add(winston.transports.File, config.app.logger.file);
+	winston.add(winston.transports.File, config.logger.file);
 
 	//Set New Relic as transport
 	_newrelicLogger();
