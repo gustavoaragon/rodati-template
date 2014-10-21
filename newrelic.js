@@ -19,9 +19,9 @@ var _config = nconf.get();
 function config(){
 
 	//Enabled/disabled the agent
-	_config.app.newrelic.config.agent_enabled = _config.app.newrelic.enabled;
+	_config.newrelic.config.agent_enabled = _config.newrelic.enabled;
 
-	return _config.app.newrelic.config;
+	return _config.newrelic.config;
 
 }
 

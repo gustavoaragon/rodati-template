@@ -18,20 +18,20 @@
         "silent": false,
         "filename": "server.log"
       }
-    },
-    "newrelic": {
-      "enabled": false,
-      "config": {
-        "application_id": "rodati-template",
-        "app_name": [
-          "rodati-template"
-        ],
-        "license_key": "<license>",
-        "logging": {
-          "level": "info"
-        },
-        "capture_params": true
-      }
+    }
+  },
+  "newrelic": {
+    "enabled": false,
+    "config": {
+      "application_id": "rodati-template-staging",
+      "app_name": [
+        "rodati-template-staging"
+      ],
+      "license_key": "<license>",
+      "logging": {
+        "level": "info"
+      },
+      "capture_params": true
     }
   }
 }
