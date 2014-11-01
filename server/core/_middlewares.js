@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 var compression = require('compression');
 var favicon = require('serve-favicon');
+var fs = require('fs');
 
 /**
  * Add some middlewares (with their configuration) for the app
@@ -40,8 +41,9 @@ function init(app, config){
 		saveUninitialized: true
 	}));
 
-	//Favicon
-	app.use(favicon(config.app.paths.public + '/images/favicon.ico'));
+	//Favicon - Check if exists, else create an empty buffer
+	var faviconPath = config.app.paths.public + '/images/favicon.ico';
+	app.use(favicon(fs.existsSync(faviconPath) ? faviconPath : new Buffer(1)));
 
 	//HTTP logger
 	app.use(morgan(config.logger.http));
