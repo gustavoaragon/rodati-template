@@ -2,50 +2,56 @@
 
 module.exports = function(grunt) {
 
-	var cssPath = 'public/css/';
+	var path = 'public/css/';
 
-	var config = {
-		options: {
-			outputStyle: 'nested',
-			imagePath: '../images'
-		}
-	};
+	var config = {};
 
-	grunt.file.recurse(cssPath, function(abspath, rootdir, subdir) {
+	if(grunt.file.exists(path)){
 
-		if(subdir !== undefined && subdir.indexOf('/') === -1 && subdir !== 'vendor'){
+		config = {
+			options: {
+				outputStyle: 'nested',
+				imagePath: '../images'
+			}
+		};
 
-			var section = subdir;
+		grunt.file.recurse(path, function(abspath, rootdir, subdir) {
 
-			config[section] = {
-				files: {}
-			};
+			if(subdir !== undefined && subdir.indexOf('/') === -1 && subdir !== 'vendor'){
 
-			config[section].files[cssPath + subdir + '.css'] = [cssPath + subdir + '/index.scss'];
+				var section = subdir;
 
-		}
+				config[section] = {
+					files: {}
+				};
 
-	});
-
-	grunt.event.on('watch', function(action, filepath) {
-
-		if(filepath.indexOf(cssPath) > -1){
-
-			var section = (filepath.split(cssPath)[1]).split('/')[0];
-
-			if(config.hasOwnProperty(section) === true){
-
-				var runConfig = {};
-
-				runConfig[section] = config[section];
-
-				grunt.config('sass', runConfig);
+				config[section].files[path + subdir + '.css'] = [path + subdir + '/index.scss'];
 
 			}
 
-		}
+		});
 
-	});
+		grunt.event.on('watch', function(action, filepath) {
+
+			if(filepath.indexOf(path) > -1){
+
+				var section = (filepath.split(path)[1]).split('/')[0];
+
+				if(config.hasOwnProperty(section) === true){
+
+					var runConfig = {};
+
+					runConfig[section] = config[section];
+
+					grunt.config('sass', runConfig);
+
+				}
+
+			}
+
+		});
+
+	}
 
 	return config;
 

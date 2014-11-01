@@ -2,48 +2,54 @@
 
 module.exports = function(grunt) {
 
-	var jsPath = 'public/js/';
+	var path = 'public/js/';
 
-	var config = {
-		options: {
-			watch: true
-		}
-	};
+	var config = {};
 
-	grunt.file.recurse(jsPath, function(abspath, rootdir, subdir) {
+	if(grunt.file.exists(path)){
 
-		if(subdir !== undefined && subdir.indexOf('/') === -1 && subdir !== 'vendor'){
+		config = {
+			options: {
+				watch: true
+			}
+		};
 
-			var section = subdir;
+		grunt.file.recurse(path, function(abspath, rootdir, subdir) {
 
-			config[section] = {
-				options: {
-					browserifyOptions: {
-						standalone: subdir
-					}
-				},
-				files: {}
-			};
+			if(subdir !== undefined && subdir.indexOf('/') === -1 && subdir !== 'vendor'){
 
-			config[section].files[jsPath + subdir + '.js'] = [jsPath + subdir + '/index.js'];
+				var section = subdir;
 
-		}
+				config[section] = {
+					options: {
+						browserifyOptions: {
+							standalone: subdir
+						}
+					},
+					files: {}
+				};
 
-	});
+				config[section].files[path + subdir + '.js'] = [path + subdir + '/index.js'];
 
-	grunt.event.on('watch', function(action, filepath) {
+			}
 
-		if(filepath.indexOf(jsPath) > -1){
+		});
 
-			var section = (filepath.split(jsPath)[1]).split('/')[0];
-			var runConfig = {};
-			runConfig[section] = config[section];
+		grunt.event.on('watch', function(action, filepath) {
 
-			grunt.config('browserify', runConfig);
+			if(filepath.indexOf(path) > -1){
 
-		}
+				var section = (filepath.split(path)[1]).split('/')[0];
+				var runConfig = {};
+				runConfig[section] = config[section];
 
-	});
+				grunt.config('browserify', runConfig);
+
+			}
+
+		});
+
+	}
 
 	return config;
 
