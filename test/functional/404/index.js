@@ -1,5 +1,7 @@
 /*global casper */
 
+'use strict';
+
 casper.test.begin('404 page', 2, function suite(test) {
 
     var url = 'http://localhost:3000/';
