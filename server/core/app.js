@@ -5,9 +5,9 @@
 /**
  * Global modules
  */
+var newrelic = require('newrelic');
 var express = require('express');
 var nconf = require('nconf');
-var newrelic = require('newrelic');
 
 /**
  * Submodules
