@@ -23,9 +23,9 @@
   "newrelic": {
     "enabled": true,
     "config": {
-      "application_id": "rodati-template-production",
+      "application_id": "rodati-template-integration",
       "app_name": [
-        "rodati-template-production"
+        "rodati-template-integration"
       ],
       "license_key": "<license>",
       "logging": {

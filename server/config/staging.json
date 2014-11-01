@@ -8,7 +8,7 @@
     }
   },
   "logger": {
-    "http": "default",
+    "http": "short",
     "console": {
       "level": "info",
       "silent": false,
