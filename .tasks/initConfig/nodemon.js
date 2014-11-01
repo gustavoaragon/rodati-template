@@ -11,6 +11,9 @@ module.exports = function(grunt) {
 				'.git',
 				'.grunt/'
 			],
+			env: {
+				NODE_ENV: process.env.NODE_ENV || 'development'
+			},
 			ext: 'js,json',
 			callback: function(nodemon) {
 				nodemon.on('restart', function() {
