@@ -1,0 +1,38 @@
+'use strict';
+
+var child   = require('child_process');
+
+child.exec('git diff-index --name-only HEAD', function (err, stdout, stderr) {
+
+	if(stdout.indexOf('public/') > -1){
+
+		child.spawn('grunt', ['optimize'], {stdio:'inherit'}).on('close', function (code) {
+
+			if (code !== 0) {
+
+				console.error('There was an error running the hook \'grunt optimize\'');
+				console.error('Please check the log or run \'grunt optimize\' to see the output');
+
+				{{#unless preventExit}}
+					process.exit(code);
+				{{/unless}}
+
+			} else {
+
+				child.exec('git add public/.', function (err, stdout, stderr) {
+
+					if(err){
+
+						console.error('There was an error running the hook \'grunt optimize\'');
+
+					}
+
+				});
+
+			}
+
+		});
+
+	}
+
+});

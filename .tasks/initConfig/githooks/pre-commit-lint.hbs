@@ -1,0 +1,26 @@
+'use strict';
+
+var child   = require('child_process');
+
+child.exec('git diff-index --name-only HEAD', function (err, stdout, stderr) {
+
+	if((stdout.indexOf('server/') > -1) || (stdout.indexOf('public/') > -1) || (stdout.indexOf('/') === -1)){
+
+		child.spawn('grunt', ['lint'], {stdio:'inherit'}).on('close', function (code) {
+
+			if (code !== 0) {
+
+				console.error('There was an error running the hook \'grunt lint\'');
+				console.error('Please check the log or run \'grunt lint\' to see the output');
+
+				{{#unless preventExit}}
+					process.exit(code);
+				{{/unless}}
+
+			}
+
+		});
+
+	}
+
+});
