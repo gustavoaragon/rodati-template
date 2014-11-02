@@ -6,44 +6,55 @@ module.exports = function(grunt) {
 
 	var config = {};
 
+	//Check that the CSS folder exists
 	if(grunt.file.exists(path)){
 
-		config = {
-			options: {
-				outputStyle: 'nested',
-				imagePath: '../images'
-			}
-		};
+		//Configuration for each page
+		grunt.file.recurse(path + 'pages', function(abspath, rootdir, subdir) {
 
-		grunt.file.recurse(path, function(abspath, rootdir, subdir) {
+			//Create only for the first folder in the root
+			if(subdir !== undefined && subdir.indexOf('/') === -1){
 
-			if(subdir !== undefined && subdir.indexOf('/') === -1 && subdir !== 'vendor'){
+				var page = subdir;
 
-				var section = subdir;
-
-				config[section] = {
+				config['pages/' + page] = {
+					//For some reason, the configuration need to be in each object
+					options: {
+						imagePath: '../images',
+						outputStyle: 'nested',
+						includePaths: ['./public/css/includes']
+					},
 					files: {}
 				};
 
-				config[section].files[path + subdir + '.css'] = [path + subdir + '/index.scss'];
+				config['pages/' + page].files[path + 'pages/' + subdir + '.css'] = [path + 'pages/' + subdir + '/index.scss'];
 
 			}
 
 		});
 
+		//On watch event
 		grunt.event.on('watch', function(action, filepath) {
 
 			if(filepath.indexOf(path) > -1){
 
-				var section = (filepath.split(path)[1]).split('/')[0];
+				var folders = (filepath.split(path)[1]).split('/');
 
-				if(config.hasOwnProperty(section) === true){
+				var section = folders[0];
 
-					var runConfig = {};
+				if(section === 'pages'){
 
-					runConfig[section] = config[section];
+					var page = folders[1];
 
-					grunt.config('sass', runConfig);
+					if(config.hasOwnProperty('pages/' + page) === true){
+
+						var runConfig = {};
+
+						runConfig['pages/' + page] = config['pages/' + page];
+
+						grunt.config('sass', runConfig);
+
+					}
 
 				}
 
