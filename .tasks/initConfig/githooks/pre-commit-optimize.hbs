@@ -19,7 +19,7 @@ child.exec('git diff-index --name-only HEAD', function (err, stdout, stderr) {
 
 			} else {
 
-				child.exec('git add public/.', function (err, stdout, stderr) {
+				child.exec('git ls-files ./public/ | grep "\.min" | xargs git add', function (err, stdout, stderr) {
 
 					if(err){
 
