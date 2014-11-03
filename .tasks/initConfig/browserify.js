@@ -2,48 +2,59 @@
 
 module.exports = function(grunt) {
 
-	var path = 'public/js/';
+	var path = './public/js/';
 
 	var config = {};
 
+	//Check that the folder exists
 	if(grunt.file.exists(path)){
 
-		config = {
-			options: {
-				watch: true
-			}
-		};
+		//Configuration for each page
+		grunt.file.recurse(path + 'pages', function(abspath, rootdir, subdir) {
 
-		grunt.file.recurse(path, function(abspath, rootdir, subdir) {
+			//Create only for the first folder in the root
+			if(subdir !== undefined && subdir.indexOf('/') === -1){
 
-			if(subdir !== undefined && subdir.indexOf('/') === -1 && subdir !== 'vendor'){
+				var page = subdir;
 
-				var section = subdir;
-
-				config[section] = {
+				config['pages/' + page] = {
 					options: {
 						browserifyOptions: {
-							standalone: subdir
+							standalone: subdir,
+							paths: [path + 'includes/']
 						}
 					},
 					files: {}
 				};
 
-				config[section].files[path + subdir + '.js'] = [path + subdir + '/index.js'];
+				config['pages/' + page].files[path + 'pages/' + subdir + '.js'] = [path + 'pages/' + subdir + '/index.js'];
 
 			}
 
 		});
 
+		//On watch event
 		grunt.event.on('watch', function(action, filepath) {
 
-			if(filepath.indexOf(path) > -1){
+			var relativePath = path.replace('./', '');
 
-				var section = (filepath.split(path)[1]).split('/')[0];
-				var runConfig = {};
-				runConfig[section] = config[section];
+			if(filepath.indexOf(relativePath) > -1){
 
-				grunt.config('browserify', runConfig);
+				var folders = (filepath.split(relativePath)[1]).split('/');
+
+				var section = folders[0];
+
+				if(section === 'pages'){
+
+					var page = folders[1];
+
+					if(config.hasOwnProperty('pages/' + page) === true){
+
+						grunt.task.run('browserify:' + 'pages/' + page);
+
+					}
+
+				}
 
 			}
 

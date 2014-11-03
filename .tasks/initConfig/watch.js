@@ -7,12 +7,10 @@ module.exports = function() {
 			spawn: false
 		},
 		scripts: {
-			files: ['public/js/**/*.js', '!public/js/*.js'],
-			tasks: ['browserify']
+			files: ['public/js/pages/**/*.js', '!public/js/pages/*.js']
 		},
 		stylesheets: {
-			files: ['public/css/**/*.scss', '!public/css/*.css'],
-			tasks: ['sass']
+			files: ['public/css/pages/**/*.scss', '!public/css/pages/*.css']
 		}
 	};
 

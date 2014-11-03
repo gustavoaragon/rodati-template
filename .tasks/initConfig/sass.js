@@ -2,11 +2,11 @@
 
 module.exports = function(grunt) {
 
-	var path = 'public/css/';
+	var path = './public/css/';
 
 	var config = {};
 
-	//Check that the CSS folder exists
+	//Check that the folder exists
 	if(grunt.file.exists(path)){
 
 		//Configuration for each page
@@ -18,11 +18,11 @@ module.exports = function(grunt) {
 				var page = subdir;
 
 				config['pages/' + page] = {
-					//For some reason, the configuration need to be in each object
+					//For some reason, this configuration needs to be in each object
 					options: {
 						imagePath: '../images',
 						outputStyle: 'nested',
-						includePaths: ['./public/css/includes']
+						includePaths: [path + 'includes/']
 					},
 					files: {}
 				};
@@ -36,9 +36,11 @@ module.exports = function(grunt) {
 		//On watch event
 		grunt.event.on('watch', function(action, filepath) {
 
-			if(filepath.indexOf(path) > -1){
+			var relativePath = path.replace('./', '');
 
-				var folders = (filepath.split(path)[1]).split('/');
+			if(filepath.indexOf(relativePath) > -1){
+
+				var folders = (filepath.split(relativePath)[1]).split('/');
 
 				var section = folders[0];
 
@@ -48,11 +50,7 @@ module.exports = function(grunt) {
 
 					if(config.hasOwnProperty('pages/' + page) === true){
 
-						var runConfig = {};
-
-						runConfig['pages/' + page] = config['pages/' + page];
-
-						grunt.config('sass', runConfig);
+						grunt.task.run('sass:' + 'pages/' + page);
 
 					}
 
