@@ -5,7 +5,17 @@
 {/title}
 
 {<body}
-	<pre>
-		{error}
-	</pre>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div>
+					<h1>Oops!</h1>
+					<h2>There was an error on the app</h2>
+					<div>
+						Sorry, an error has occured: <pre>{error}</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {/body}
