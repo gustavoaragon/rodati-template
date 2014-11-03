@@ -14,13 +14,13 @@ var newrelic = require('newrelic');
 function init(req, res){
 
 	//Log in New Relic for monitoring
-	newrelic.setTransactionName('hello');
+	newrelic.setTransactionName('home');
 
 	//Example of use of winston
 	winston.info('This message was logged using winston');
 
 	//Render the view
-	res.render('hello/index');
+	res.render('home/index');
 
 }
 

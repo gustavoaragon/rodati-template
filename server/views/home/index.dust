@@ -1,0 +1,33 @@
+{>"layouts/main" /}
+
+{<title}
+	Rodati template - Home
+{/title}
+
+{<body}
+	<div id="home" class="home">
+		<h1>A node.js project template <small>created by the Rodati's developer team.</small></h1>
+		<h3>The main purposes are:</h3>
+		<ul>
+			<li>Serve as template/boilerplate for another (nodejs) projects</li>
+			<li>Understand how a basic nodejs application works and the differences/similarities with another languages/projects</li>
+			<li>Know the conventions (coding style, formats), common practices (patterns, solutions) and tools (frameworks, modules, libraries) used internally by the team</li>
+		</ul>
+	 </div>
+{/body}
+
+{<css}
+	{@css href="/css/pages/home.css" rel="stylesheet" media="screen" /}
+{/css}
+
+{<js}
+	{@js src="/js/pages/home.js" /}
+	<script>
+		$(document).ready(function(){
+
+			//Init the home
+			home.init();
+
+		});
+	</script>
+{/js}
