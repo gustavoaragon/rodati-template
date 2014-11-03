@@ -1,0 +1,28 @@
+/**
+ * Navbar
+ */
+
+.navbar{
+	border-radius: 0px;
+	background-color: $rodati-red;
+	border-color: darken($rodati-red, 20%);
+
+	//Logo
+	.navbar-brand{
+		color: #FFF;
+	}
+
+	//Items
+	.navbar-nav{
+
+		li{
+
+			a{
+				color: #FFF;
+			}
+		
+		}
+
+	}
+
+}

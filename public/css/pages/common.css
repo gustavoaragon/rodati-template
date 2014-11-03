@@ -2,10 +2,13 @@
  * Colors
  */
 /**
- * Body
+ * Navbar
  */
-.body {
-  font-size: 14px; }
-
-a {
-  color: #2285ff; }
+.navbar {
+  border-radius: 0px;
+  background-color: #eb5d40;
+  border-color: #b22e13; }
+  .navbar .navbar-brand {
+    color: #FFF; }
+  .navbar .navbar-nav li a {
+    color: #FFF; }
