@@ -324,15 +324,20 @@ process.chdir = function (dir) {
 var path = require('path');
 
 /**
+ * Local modules
+ */
+var logger = require('logger');
+
+/**
  * Private variables
  */
-var _path = path.join(__dirname, 'index.js');
+var _folder = path.join(__dirname, 'index.js');
 
 /**
  * A simple function that log in the console
  */
 function init(){
-	console.log('Welcome to Rodati template! Take a look in ' + _path + ' to know more!');
+	logger.log('Welcome to Rodati template! Take a look in ' + _folder + ' to know more!');
 }
 
 /**
@@ -343,5 +348,36 @@ module.exports = {
 };
 
 }).call(this,"/public/js/pages/home")
-},{"path":1}]},{},[3])(3)
+},{"logger":4,"path":1}],4:[function(require,module,exports){
+'use strict';
+
+/**
+ * Private variables
+ */
+var _console = window.console || false;
+
+/**
+ * Safe console.log
+ * @param  {string} msg Message to log
+ */
+function log(msg){
+
+	//Check if the console object exists
+	if(_console){
+
+		//Log
+		_console.log(msg);
+
+	}
+
+}
+
+/**
+ * Public methods exported
+ */
+module.exports = {
+	log: log
+};
+
+},{}]},{},[3])(3)
 });

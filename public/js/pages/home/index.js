@@ -6,15 +6,20 @@
 var path = require('path');
 
 /**
+ * Local modules
+ */
+var logger = require('logger');
+
+/**
  * Private variables
  */
-var _path = path.join(__dirname, 'index.js');
+var _folder = path.join(__dirname, 'index.js');
 
 /**
  * A simple function that log in the console
  */
 function init(){
-	console.log('Welcome to Rodati template! Take a look in ' + _path + ' to know more!');
+	logger.log('Welcome to Rodati template! Take a look in ' + _folder + ' to know more!');
 }
 
 /**
