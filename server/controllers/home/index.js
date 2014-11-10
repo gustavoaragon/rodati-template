@@ -17,7 +17,7 @@ function init(req, res){
 	newrelic.setTransactionName('home');
 
 	//Example of use of winston
-	winston.info('This message was logged using winston');
+	winston.info('Rendering home view');
 
 	//Render the view
 	res.render('home/index');

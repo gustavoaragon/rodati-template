@@ -5,20 +5,22 @@
 {/title}
 
 {<body}
-	<div id="about" class="about text-center">
-		<h1>{developers.name}</h1>
-		<ul>
-			{#developers.members}
-				<li>{.}</li>
-			{/developers.members}
-		</ul>
+	<div id="about" class="about">
+		<h1>Team</h1>
+		{#team}
+			<div class="media member">
+				<a class="media-left" href="{profile}">
+					<img src="{avatar}" alt="{username}">
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">{username}</h4>
+					<a href="{profile}">{profile}</a>
+				</div>
+			</div>
+		{/team}
 	</div>
 {/body}
 
 {<css}
-	<style>
-		h1{
-			color: #eb5d40;
-		}
-	</style>
+	{@css href="/css/pages/about.css" rel="stylesheet" media="screen" /}
 {/css}
