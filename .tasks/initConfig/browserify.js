@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 					options: {
 						browserifyOptions: {
 							standalone: subdir,
-							paths: [path + 'includes/']
+							paths: [path + 'libs/', path + 'config/']
 						}
 					},
 					files: {}

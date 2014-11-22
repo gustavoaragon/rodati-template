@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 					options: {
 						imagePath: '../images',
 						outputStyle: 'nested',
-						includePaths: [path + 'includes/']
+						includePaths: [path + 'libs/', path + 'config/']
 					},
 					files: {}
 				};
