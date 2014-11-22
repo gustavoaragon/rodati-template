@@ -33,5 +33,9 @@
       },
       "capture_params": true
     }
+  },
+  "raygun": {
+    "enabled": false, 
+    "apiKey": "<licence>"
   }
 }

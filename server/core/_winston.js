@@ -6,6 +6,7 @@
 var winston = require('winston');
 var newrelic = require('newrelic');
 var util = require('util');
+var raygun = require('raygun');
 
 /**
  * Add transports to Winston depending on the configuration
@@ -25,6 +26,9 @@ function init(app, config){
 
 	//Set New Relic as transport
 	_newrelicLogger();
+
+	//Set Raygun as transport
+	_raygunLogger(config.raygun);
 
 }
 
@@ -46,8 +50,13 @@ function _newrelicLogger(){
 	//Behavior when a new log is comming
 	logger.prototype.log = function (level, msg, meta, callback) {
 
+		//Little hack to set the original stacktrace
+		var msgList = msg.split('\n');
+		var err = new Error(msgList[0]);
+		err.stack = msgList.join('\n');
+
 		//Send the error to New Relic
-		newrelic.noticeError(new Error(msg), meta);
+		newrelic.noticeError(err, meta);
 
 		//Next
 		callback(null, true);
@@ -56,6 +65,48 @@ function _newrelicLogger(){
 
 	//Add to winston
 	winston.add(winston.transports.newrelic);
+
+}
+
+/**
+ * Create a new transport to log all the errors in Raygun
+ * @param  {object} config Configuration for Raygun
+ * @see https://github.com/flatiron/winston#adding-custom-transports
+ */
+function _raygunLogger(config) {
+
+	var raygunClient = new raygun.Client().init(config);
+	//Create the transport
+	var logger = winston.transports.raygun = function() {
+		this.name = 'raygun';
+		this.level = 'error';
+	};
+
+	//Inherits
+	util.inherits(logger, winston.Transport);
+
+	//Behavior when a new log is comming
+	logger.prototype.log = function(level, msg, meta, callback) {
+
+		if(config.enabled){
+
+			//Little hack to set the original stacktrace
+			var msgList = msg.split('\n');
+			var err = new Error(msgList[0]);
+			err.stack = msgList.join('\n');
+
+			//Send the error to raygun
+			raygunClient.send(err, meta);
+
+		}
+
+		//Next
+		callback(null, true);
+
+	};
+
+	//Add to winston
+	winston.add(winston.transports.raygun);
 
 }
 
