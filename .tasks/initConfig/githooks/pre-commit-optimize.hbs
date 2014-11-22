@@ -2,7 +2,7 @@
 
 var child   = require('child_process');
 
-child.exec('git diff-index --name-only HEAD', function (err, stdout, stderr) {
+child.exec('git diff --name-only --cached', function (err, stdout, stderr) {
 
 	if(stdout.indexOf('public/') > -1){
 
