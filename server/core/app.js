@@ -19,6 +19,7 @@ var errors = require('./_errors');
 var load = require('./_load');
 var winston = require('./_winston');
 var locals = require('./_locals');
+var globals = require('./_globals');
 
 /**
  * Private variables
@@ -34,6 +35,9 @@ function init(){
 
 	//Create an instance of express
 	_app = express();
+
+	//Globals
+	globals.init(_app, _config);
 
 	//Winston
 	winston.init(_app, _config);

@@ -6,7 +6,7 @@
 var dust = require('adaro');
 
 /**
- * Enable and configure New Relix
+ * Set the view engine to use by the app
  * @param  {object} app    Express instance
  * @param  {object} config Object with the configuration of the app
  */
