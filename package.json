@@ -23,7 +23,7 @@
     "dustjs-linkedin": "2.3.6",
     "express": "4.10.1",
     "express-load": "1.1.14",
-    "flashify": "^0.1.2",
+    "flashify": "0.1.2",
     "lodash": "2.4.1",
     "moment": "2.8.3",
     "morgan": "1.4.1",
