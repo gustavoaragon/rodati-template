@@ -5,6 +5,9 @@
 {/title}
 
 {<body}
+
+	{>"common/_flash" /}
+
 	<div id="home" class="home">
 		<h1>A node.js project template <small>created by the Rodati's developer team.</small></h1>
 		<h3>The main purposes are:</h3>
@@ -14,6 +17,7 @@
 			<li>Know the conventions (coding style, formats), common practices (patterns, solutions) and tools (frameworks, modules, libraries) used internally by the team</li>
 		</ul>
 	 </div>
+
 {/body}
 
 {<css}
