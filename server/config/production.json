@@ -5,6 +5,10 @@
     "views": {
       "ws": true,
       "cache": true
+    },
+    "session": {
+      "name": "express.sess",
+      "keys": ["rodati.template"]
     }
   },
   "logger": {

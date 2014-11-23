@@ -5,7 +5,7 @@
  */
 var express = require('express');
 var bodyParser = require('body-parser');
-var session = require('express-session');
+var session = require('cookie-session');
 var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 var compression = require('compression');
@@ -36,11 +36,7 @@ function init(app, config){
 	}));
 
 	//Session support
-	app.use(session({
-		secret: config.app.secret,
-		resave: true,
-		saveUninitialized: true
-	}));
+	app.use(session(config.app.session));
 
 	//Favicon - Check if exists, else create an empty buffer
 	var faviconPath = config.app.paths.public + '/images/favicon.ico';
