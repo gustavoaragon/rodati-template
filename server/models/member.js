@@ -1,3 +1,5 @@
+/* globals utils */
+
 'use strict';
 
 /**
@@ -40,29 +42,36 @@ Instance.prototype.getAvatarUrl = function(callback) {
 		//Check errors
 		if (err) {
 
-			//Log the error
-			winston.error('There was an error getting the user avatar: ' + err);
-
-			//Pass an error string
-			callback('ERROR');
+			//Pass the error
+			callback(err);
 
 		} else {
 
-			winston.info('Avatar gotten successfully for user ' + username);
-
 			//Try to parse the body response
-			var data = JSON.parse(body);
+			var data = utils.tryJSON.parse(body);
 
-			//Check if the response has the avatar prop
-			if(data.hasOwnProperty('avatar_url') === false){
+			//Check if the body is a valid JSON
+			if(data){
 
-				//Log an error
-				winston.warn('The response doen\'t have the property \'avatar_url\'');
+				//Check if the response has the avatar prop
+				if(data.hasOwnProperty('avatar_url')){
+
+					//Pass the avatar in the callback
+					callback(null, data.avatar_url);
+
+				} else {
+
+					//Pass an error
+					callback(new Error('The response doen\'t have the property \'avatar_url\''));				
+
+				}
+
+			} else {
+
+				//Pass an error
+				callback(new Error('The response is not a valid JSON object'));
 
 			}
-
-			//Pass the avatar in the callback
-			callback(data.avatar_url);
 
 		}
 

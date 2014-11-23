@@ -1,3 +1,5 @@
+/* globals app */
+
 'use strict';
 
 /**
@@ -5,6 +7,7 @@
  */
 var newrelic = require('newrelic');
 var async = require('async');
+var winston = require('winston');
 
 /**
  * Private variables
@@ -31,7 +34,7 @@ function init(req, res){
 	var team = [];
 
 	//Init the model member
-	var Member = req.app.models.member.instance;
+	var Member = app.models.member.instance;
 
 	//Create a member for each username
 	async.each(_usernames, function(username, callback){
@@ -40,17 +43,32 @@ function init(req, res){
 		var member = new Member(username);
 
 		//Get the avatar of the user
-		member.getAvatarUrl(function(avatar){
+		member.getAvatarUrl(function(err, avatar){
 
-			//Push a new member
-			team.push({
-				username: member.username,
-				profile: member.profile,
-				avatar: avatar
-			});
+			//Check errors
+			if (err) {
 
-			//Next
-			callback();
+				//Track the error
+				winston.error(err.stack);
+
+				//Sen the error
+				callback(err);
+
+			} else {
+
+				winston.info('Avatar gotten successfully for user ' + username);
+
+				//Push a new member
+				team.push({
+					username: member.username,
+					profile: member.profile,
+					avatar: avatar
+				});
+
+				//Next
+				callback();
+
+			}
 
 		});
 
@@ -59,10 +77,14 @@ function init(req, res){
 		//Check errors
 		if(err){
 
-			//Render the error page
-			res.render('error/500', {
-				error: err
-			});
+			//Track the error
+			winston.error(err.stack, req.headers);
+
+			//Show flash
+			req.flash('error', 'There was an error getting the about page, please try in some minutes');
+
+			//Redirect to the home
+			res.redirect('/');
 
 		} else {
 

@@ -3,7 +3,6 @@
 /**
  * Global modules
  */
-var path = require('path');
 var fs = require('fs');
 
 /**
@@ -15,7 +14,7 @@ var fs = require('fs');
 function init(dust, config){
 
 	//Read each file synchronously
-	fs.readdirSync(path.join(__dirname, '/')).forEach(function(file) {
+	fs.readdirSync(__dirname).forEach(function(file) {
 
 		//If the file is a .js and not this file
 		if (file.match(/.+\.js/g) !== null && file !== 'index.js') {
