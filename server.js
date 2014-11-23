@@ -12,8 +12,8 @@ var nconf = require('nconf');
  */
 var _env = process.env.NODE_ENV || 'development';
 var _root = path.normalize(__dirname);
-var _config = _root + '/server/config/' + _env + '.json';
-var _pkg = require(_root + '/package.json');
+var _config = path.join(_root, 'server', 'config', _env + '.json');
+var _pkg = require(path.join(_root, 'package.json'));
 
 /**
  * Init the application if all conditions are availables
@@ -39,15 +39,15 @@ function init(){
 			//Set the main paths of the app
 			nconf.set('app:paths', {
 				'root': _root,
-				'server': _root + '/server',
-				'public': _root + '/public'
+				'server': path.join(_root, 'server'),
+				'public': path.join(_root, 'public')
 			});
 
 			//Set the port of the app
 			nconf.set('app:port', (Number(process.env.PORT) || nconf.get('app:port')));
 
 			//Init the app and export the instance
-			module.exports = require(_root + '/server/core/app').init();
+			module.exports = require(path.join(_root, 'server', 'core', 'app')).init();
 
 		//If the config file doen't exists, throw an error
 		} else {
