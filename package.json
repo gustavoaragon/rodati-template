@@ -23,6 +23,7 @@
     "express": "4.10.1",
     "express-load": "1.1.14",
     "express-session": "1.9.1",
+    "flashify": "^0.1.2",
     "lodash": "2.4.1",
     "moment": "2.8.3",
     "morgan": "1.4.1",
