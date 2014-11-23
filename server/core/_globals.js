@@ -47,21 +47,26 @@ function _libs(config){
 
 	var folder = path.join(config.app.paths.server, 'libs');
 
-	//Read each file synchronously
-	fs.readdirSync(folder).forEach(function(file) {
+	//Check if the lib folder exists
+	if(fs.existsSync(folder)){
 
-		//Lib path
-		var lib = path.join(folder, file, 'index.js');
+		//Read each file synchronously
+		fs.readdirSync(folder).forEach(function(file) {
 
-		//If is a folder and has an index.js
-		if(fs.existsSync(lib)){
+			//Lib path
+			var lib = path.join(folder, file, 'index.js');
 
-			//Load in the global object
-			_globals[file] = require(lib);
+			//If is a folder and has an index.js
+			if(fs.existsSync(lib)){
 
-		}
+				//Load in the global object
+				_globals[file] = require(lib);
 
-	});
+			}
+
+		});
+
+	}
 
 }
 
