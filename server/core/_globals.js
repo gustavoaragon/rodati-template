@@ -19,6 +19,9 @@ var _globals = {};
  */
 function init(app, config){
 
+	//Init some globals
+	_globals.app = app;
+
 	//Load the libs
 	_libs(config);
 
