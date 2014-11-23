@@ -36,6 +36,9 @@ function init(){
 			//Set the version of the app
 			nconf.set('app:version', _pkg.version);
 
+			//Set the environment of the app
+			nconf.set('app:env', _env);
+
 			//Set the main paths of the app
 			nconf.set('app:paths', {
 				'root': _root,

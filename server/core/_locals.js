@@ -8,7 +8,7 @@
 function init(app, config){
 
 	//Configuration
-	app.locals.config = config.app;
+	app.locals.config = config;
 
 }
 
