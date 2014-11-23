@@ -1,0 +1,54 @@
+
+<!-- Flash -->
+{?flash.error}
+	{#flash.error}
+		<div class="flash alert alert-danger alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert">
+				<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+			</button>
+			<div class="container">
+				<strong>{.}</strong>
+			</div>
+		</div>
+	{/flash.error}
+{/flash.error}
+
+{?flash.warning}
+	{#flash.warning}
+		<div class="flash alert alert-warning alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert">
+				<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+			</button>
+			<div class="container">
+				<strong>{.}</strong>
+			</div>
+		</div>
+	{/flash.warning}
+{/flash.warning}
+
+{?flash.info}
+	{#flash.info}
+		<div class="flash alert alert-info alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert">
+				<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+			</button>
+			<div class="container">
+				<strong>{.}</strong>
+			</div>
+		</div>
+	{/flash.info}
+{/flash.info}
+
+{?flash.success}
+	{#flash.success}
+		<div class="flash alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert">
+				<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+			</button>
+			<div class="container">
+				<strong>{.}</strong>
+			</div>
+		</div>
+	{/flash.success}
+{/flash.success}
+<!-- End flash -->
