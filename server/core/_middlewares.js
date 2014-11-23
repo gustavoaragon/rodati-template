@@ -3,6 +3,7 @@
 /**
  * Global modules
  */
+var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('cookie-session');
@@ -39,7 +40,7 @@ function init(app, config){
 	app.use(session(config.app.session));
 
 	//Favicon - Check if exists, else create an empty buffer
-	var faviconPath = config.app.paths.public + '/images/favicon.ico';
+	var faviconPath = path.join(config.app.paths.public, 'images', 'favicon.ico');
 	app.use(favicon(fs.existsSync(faviconPath) ? faviconPath : new Buffer(1)));
 
 	//HTTP logger
