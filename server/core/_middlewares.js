@@ -11,6 +11,7 @@ var morgan = require('morgan');
 var compression = require('compression');
 var favicon = require('serve-favicon');
 var fs = require('fs');
+var flash = require('flashify');
 
 /**
  * Add some middlewares (with their configuration) for the app
@@ -47,6 +48,9 @@ function init(app, config){
 
 	//HTTP logger
 	app.use(morgan(config.logger.http));
+
+	//Flash messages
+	app.use(flash);
 
 }
 
