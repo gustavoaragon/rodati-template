@@ -3,6 +3,9 @@
     "node": true,
     "browser": true
   },
+  "globals": {
+    "app": true
+  },
   "rules": {
     "quotes": [
       1,

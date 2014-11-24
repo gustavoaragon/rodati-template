@@ -1,5 +1,3 @@
-/* globals app */
-
 'use strict';
 
 /**
