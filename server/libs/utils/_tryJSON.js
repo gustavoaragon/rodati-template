@@ -35,8 +35,6 @@ function parse(jsonString) {
 	//Else, skip and return the object
 	} else {
 
-		winston.warn('The parameter is not a string to parse');
-
 		return jsonString;
 
 	}
