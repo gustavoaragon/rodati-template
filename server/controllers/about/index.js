@@ -15,7 +15,8 @@ var _usernames = [
 	'esculli',
 	'poislagarde',
 	'mathiasefron',
-	'nelak'
+	'nelak',
+	'LucianoGanga'
 ];
 
 /**
